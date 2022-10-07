@@ -12,6 +12,7 @@ export class App extends Component {
     const contact = {
       id: nanoid(),
       name: data.name,
+      number: data.number,
     };
 
     this.setState(({ contacts }) => ({
