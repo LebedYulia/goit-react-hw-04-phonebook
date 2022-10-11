@@ -30,8 +30,7 @@ export class ContactForm extends Component {
         <label htmlFor="name">Name
         <input
           type="text"
-          name="name"
-          
+          name="name"          
           value={this.state.name}
           onChange={this.handleChange}
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
