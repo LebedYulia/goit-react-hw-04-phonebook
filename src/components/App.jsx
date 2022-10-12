@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
+import { Section } from './Section/Section';
 import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
@@ -30,8 +31,9 @@ export class App extends Component {
     };
 
     const contacts = this.state.contacts;
-    const containName = contacts.find(contact => 
-      contact.name.toLowerCase() === name.toLowerCase());
+    const containName = contacts.find(
+      contact => contact.name.toLowerCase() === name.toLowerCase()
+    );
 
     if (containName) {
       return alert(`${name} is alredy in contacts`);
@@ -61,15 +63,18 @@ export class App extends Component {
 
     return (
       <div>
-        <h1>Phonebook</h1>
-        <ContactForm onSubmit={this.addContact} />
+        <Section title={'Phonebook'}>
+          <ContactForm onSubmit={this.addContact} />
+        </Section>
 
-        <h2>Contacts</h2>
-        <Filter value={filter} onChange={this.handleChange} />
-        <ContactList
-          contacts={visibleContacts}
-          onDeleteContact={this.deleteContact}
-        />
+        <Section title={'Contacts'}>        
+          <Filter 
+              value={filter} 
+              onChange={this.handleChange} />
+          <ContactList
+              contacts={visibleContacts}
+              onDeleteContact={this.deleteContact}  />
+        </Section>
       </div>
     );
   }
