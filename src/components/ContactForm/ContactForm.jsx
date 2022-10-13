@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Form, Label, Button } from './ContactForm.styled'
 
 
@@ -28,6 +29,7 @@ export class ContactForm extends Component {
       number: '',
     });
   };
+  
   render() {
     return (
       <Form onSubmit={this.handleSubmit}>
@@ -57,5 +59,9 @@ export class ContactForm extends Component {
       </Form>
     );
   }
+}
+
+ContactForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
 }
 
